@@ -1,0 +1,11 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#EEF3FB"/>
+  <rect x="0" y="0" width="300" height="900" fill="#F8FAFD" stroke="#D9E3F2"/>
+  <rect x="340" y="70" width="1220" height="130" rx="18" fill="#DDE8F8"/>
+  <rect x="340" y="230" width="1220" height="190" rx="18" fill="#FFFFFF" stroke="#D7E2F3"/>
+  <rect x="340" y="450" width="1220" height="110" rx="18" fill="#FFFFFF" stroke="#D7E2F3"/>
+  <rect x="340" y="580" width="1220" height="110" rx="18" fill="#FFFFFF" stroke="#D7E2F3"/>
+  <rect x="340" y="710" width="1220" height="110" rx="18" fill="#FFFFFF" stroke="#D7E2F3"/>
+  <text x="340" y="870" fill="#1F2937" font-size="52" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Leerling Portal - Home</text>
+  <text x="340" y="912" fill="#475569" font-size="30" font-family="Segoe UI, Arial, sans-serif">Hier zien leerlingen lessen, betalingen en documenten.</text>
+</svg>

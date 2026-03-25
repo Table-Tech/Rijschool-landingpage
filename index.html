@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rijschool Planning Systeem — Onepager</title>
+    <title>Rijschool Platform — Duidelijke Uitleg</title>
     <meta
       name="description"
-      content="Complete onepager van het Rijschool Planning Systeem: architectuur, rollen, workflows, beveiliging, runbook, testchecklist en roadmap."
+      content="Duidelijke en simpele uitleg van het Rijschool Platform, met beeldkaarten en overzicht van functies."
     />
     <style>
       :root {
@@ -20,9 +20,6 @@
         --line: #233b6f;
         --accent: #4f79ff;
         --accent-soft: #7da3ff;
-        --ok: #40d19b;
-        --warn: #f6c46b;
-        --danger: #f78f9d;
         --max: 1120px;
         --radius: 16px;
       }
@@ -40,15 +37,6 @@
         color: var(--text);
         font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
         line-height: 1.55;
-      }
-
-      a {
-        color: var(--accent-soft);
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
       }
 
       .container {
@@ -92,26 +80,25 @@
       }
 
       .hero {
-        padding: 4.5rem 0 2.25rem;
+        padding: 4rem 0 2rem;
       }
 
       .hero h1 {
         margin: 0;
-        font-size: clamp(1.65rem, 4vw, 2.9rem);
-        line-height: 1.16;
-        max-width: 18ch;
+        font-size: clamp(1.7rem, 4vw, 2.7rem);
+        line-height: 1.15;
       }
 
       .hero p {
-        margin-top: 1rem;
-        max-width: 74ch;
+        margin-top: 0.8rem;
+        max-width: 70ch;
         color: var(--text-soft);
       }
 
       .meta-grid {
-        margin-top: 1.6rem;
+        margin-top: 1.2rem;
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 0.8rem;
       }
 
@@ -124,15 +111,13 @@
 
       .meta strong {
         display: block;
-        font-size: 0.78rem;
+        font-size: 0.8rem;
         color: var(--muted);
-        text-transform: uppercase;
-        letter-spacing: 0.07em;
       }
 
       .meta span {
         display: block;
-        margin-top: 0.32rem;
+        margin-top: 0.28rem;
         font-weight: 600;
       }
 
@@ -140,10 +125,15 @@
         padding: 0 0 4rem;
       }
 
+      .section-title {
+        margin: 1.9rem 0 0.9rem;
+        font-size: 1.15rem;
+      }
+
       .grid {
         display: grid;
         gap: 1rem;
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .card {
@@ -154,14 +144,8 @@
       }
 
       .card h2 {
-        margin: 0 0 0.65rem;
-        font-size: 1.08rem;
-      }
-
-      .card h3 {
-        margin: 0 0 0.45rem;
-        font-size: 0.98rem;
-        color: var(--text);
+        margin: 0 0 0.6rem;
+        font-size: 1.06rem;
       }
 
       .card p,
@@ -170,123 +154,159 @@
       }
 
       .card ul {
-        margin: 0.4rem 0 0;
-        padding-left: 1.15rem;
+        margin: 0.35rem 0 0;
+        padding-left: 1.1rem;
       }
 
-      .stack {
-        display: grid;
-        gap: 1rem;
+      .visual-card {
+        padding: 0;
+        overflow: hidden;
       }
 
-      .section-title {
-        margin: 2rem 0 0.9rem;
-        font-size: 1.08rem;
-        color: var(--text);
+      .slide-header {
+        padding: 1rem 1rem 0.7rem;
+        border-bottom: 1px solid var(--line);
       }
 
-      .roles {
-        display: grid;
-        gap: 0.75rem;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        padding: 0.22rem 0.6rem;
-        border-radius: 999px;
-        border: 1px solid var(--line);
-        background: #173265;
-        font-size: 0.78rem;
+      .slide-header p {
+        margin: 0.25rem 0 0;
         color: var(--text-soft);
       }
 
-      .kpi {
+      .carousel {
+        position: relative;
+      }
+
+      .slide {
+        display: none;
+      }
+
+      .slide.active {
+        display: block;
+      }
+
+      .slide-image {
+        width: 100%;
+        height: 460px;
+        object-fit: cover;
+        display: block;
+        background: #0c1833;
+      }
+
+      .slide-info {
+        padding: 0.9rem 1rem 1rem;
+      }
+
+      .slide-info h3 {
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .slide-info p {
+        margin: 0.25rem 0 0;
+        color: var(--text-soft);
+      }
+
+      .carousel-controls {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.6rem;
+        padding: 0 1rem 1rem;
+      }
+
+      .btn {
+        border: 1px solid var(--line);
+        background: #173265;
+        color: var(--text);
+        padding: 0.5rem 0.9rem;
+        border-radius: 10px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background: #204282;
+      }
+
+      .dots {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 1px solid #8ea1d4;
+        background: transparent;
+      }
+
+      .dot.active {
+        background: #7da3ff;
+      }
+
+      .gallery {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 0.75rem;
       }
 
-      .kpi .item {
-        border-radius: 12px;
+      .gallery figure {
+        margin: 0;
         border: 1px solid var(--line);
-        background: #122a55;
-        padding: 0.8rem;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #0f1f42;
       }
 
-      .kpi .item b {
+      .gallery img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
         display: block;
-        font-size: 1.35rem;
       }
 
-      .kpi .item span {
+      .gallery figcaption {
+        padding: 0.55rem 0.7rem;
         color: var(--text-soft);
-        font-size: 0.88rem;
-      }
-
-      .status {
-        display: grid;
-        gap: 0.55rem;
-      }
-
-      .status .row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        align-items: center;
-      }
-
-      .dot {
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-      }
-
-      .ok {
-        background: var(--ok);
-      }
-
-      .warn {
-        background: var(--warn);
-      }
-
-      .danger {
-        background: var(--danger);
+        font-size: 0.9rem;
       }
 
       footer {
         border-top: 1px solid var(--line);
-        padding: 1.25rem 0 2.3rem;
+        padding: 1.2rem 0 2.2rem;
         color: var(--muted);
         font-size: 0.9rem;
       }
 
       @media (max-width: 980px) {
         .meta-grid,
-        .kpi {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
+        .grid,
+        .gallery {
+          grid-template-columns: 1fr;
         }
 
-        .grid {
-          grid-template-columns: 1fr;
+        .slide-image {
+          height: 300px;
         }
       }
 
       @media (max-width: 640px) {
         .hero {
-          padding-top: 3.3rem;
+          padding-top: 3.2rem;
         }
 
-        .roles,
-        .meta-grid,
-        .kpi {
-          grid-template-columns: 1fr;
+        .topbar-inner {
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          padding: 0.6rem 0;
         }
 
-        .card {
-          padding: 1rem;
+        .carousel-controls {
+          flex-direction: column;
+          align-items: flex-start;
         }
       }
     </style>
@@ -294,335 +314,168 @@
   <body>
     <header class="topbar">
       <div class="container topbar-inner">
-        <div class="brand">Rijschool Planning Systeem — Onepager</div>
-        <span class="tag">Versie 1.0 • 25 maart 2026</span>
+        <div class="brand">Rijschool Platform — Duidelijke Onepager</div>
+        <span class="tag">Bijgewerkt • 25 maart 2026</span>
       </div>
     </header>
 
     <section class="hero container">
-      <h1>Volledig overzicht van het multi-tenant rijschoolplatform</h1>
+      <h1>Alles op één plek voor jouw rijschool</h1>
       <p>
-        Het Rijschool Planning Systeem is een volwassen SaaS-oplossing voor
-        rijscholen met duidelijke rolscheiding, centrale planning,
-        leerlingbeheer, instructeurbeheer, betalingen, communicatie,
-        auditlogging en platformbeheer.
+        Deze pagina legt simpel uit wat het systeem doet. Geen moeilijke taal, maar
+        duidelijke uitleg: wie gebruikt het, wat kun je ermee en hoe helpt het in de praktijk.
       </p>
-
       <div class="meta-grid">
         <div class="meta">
-          <strong>Architectuur</strong>
-          <span>Monorepo (Frontend + Backend + Super Admin)</span>
+          <strong>Voor wie</strong>
+          <span>Eigenaar, instructeur en leerling</span>
         </div>
         <div class="meta">
-          <strong>Tenant model</strong>
-          <span>Strikte data-isolatie per rijschool</span>
+          <strong>Wat regelt het</strong>
+          <span>Planning, leerlingen, betalingen en berichten</span>
         </div>
         <div class="meta">
-          <strong>Kernrollen</strong>
-          <span>Super Admin, Eigenaar, Instructeur, Leerling</span>
-        </div>
-        <div class="meta">
-          <strong>Status</strong>
-          <span>Production-ready* (met deployment-checks)</span>
+          <strong>Voordeel</strong>
+          <span>Minder losse tools, meer overzicht</span>
         </div>
       </div>
     </section>
 
     <main class="container">
-      <h2 class="section-title">1. Systeem in 1 minuut</h2>
+      <h2 class="section-title">Wat je met het systeem doet</h2>
       <div class="grid">
         <article class="card">
-          <h2>Wat het systeem doet</h2>
+          <h2>Dagelijkse taken</h2>
           <ul>
-            <li>Plannen, wijzigen en beheren van rijlessen in één omgeving.</li>
-            <li>Complete leerling- en instructeuradministratie met voortgang.</li>
-            <li>Betalingen, pakketten en openstaande posten centraal beheerd.</li>
-            <li>Emailflows, reminders, audits en exports voor compliance.</li>
-            <li>Super-admin laag voor tenants, features en platformcontrole.</li>
+            <li>Lessen plannen, verzetten en annuleren.</li>
+            <li>Leerlingen en instructeurs beheren.</li>
+            <li>Betalingen en pakketten opvolgen.</li>
+            <li>Herinneringen en mails versturen.</li>
           </ul>
         </article>
-
         <article class="card">
-          <h2>Voor wie</h2>
-          <div class="roles">
-            <div>
-              <h3>Super Admin</h3>
-              <p>Platformbeheer, tenants, feature flags, lifecycle tooling.</p>
-            </div>
-            <div>
-              <h3>Eigenaar</h3>
-              <p>Hoogste rol binnen rijschool: planning, team, finance, audit.</p>
-            </div>
-            <div>
-              <h3>Instructeur</h3>
-              <p>Rooster, leerlingen, lesuitvoering en voorstelacties.</p>
-            </div>
-            <div>
-              <h3>Leerling</h3>
-              <p>Eigen lessen/profiel en relevante statusinformatie.</p>
-            </div>
-          </div>
+          <h2>Duidelijke rollen</h2>
+          <ul>
+            <li><strong>Eigenaar:</strong> beheert de hele rijschool.</li>
+            <li><strong>Instructeur:</strong> werkt met agenda en leerlingen.</li>
+            <li><strong>Leerling:</strong> ziet lessen, betalingen en documenten.</li>
+            <li><strong>Beheer:</strong> veilig en overzichtelijk per rijschool.</li>
+          </ul>
         </article>
       </div>
 
-      <h2 class="section-title">2. Architectuur & stack</h2>
-      <div class="grid">
-        <article class="card stack">
-          <div>
-            <h3>Frontend</h3>
-            <p>Next.js 15 (App Router), React 19, TypeScript, Tailwind, shadcn/ui.</p>
-          </div>
-          <div>
-            <h3>Backend</h3>
-            <p>Node.js + Express + PostgreSQL, JWT auth met refresh token flow.</p>
-          </div>
-          <div>
-            <h3>Super Admin</h3>
-            <p>React + Vite portal voor platformniveau beheer en audit.</p>
-          </div>
-        </article>
-
-        <article class="card stack">
-          <div>
-            <h3>Integraties</h3>
-            <ul>
-              <li>Resend (email)</li>
-              <li>Mollie (betalingen + webhooks)</li>
-              <li>Cron jobs (reminders/installments)</li>
-              <li>Pino logging en optioneel Sentry</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Data & security fundament</h3>
-            <p>
-              Multi-tenant isolatie via <span class="pill">rijschool_id</span>,
-              parameterized SQL, inputvalidatie en endpoint-specifieke rate limits.
-            </p>
-          </div>
-        </article>
-      </div>
-
-      <h2 class="section-title">3. Functionele domeinen</h2>
-      <div class="card">
-        <div class="kpi">
-          <div class="item"><b>A</b><span>Authenticatie & sessies</span></div>
-          <div class="item"><b>B</b><span>Leerlingbeheer</span></div>
-          <div class="item"><b>C</b><span>Instructeurbeheer</span></div>
-          <div class="item"><b>D</b><span>Planning & lessen</span></div>
-          <div class="item"><b>E</b><span>Betalingen & pakketten</span></div>
-          <div class="item"><b>F</b><span>Email & notificaties</span></div>
-          <div class="item"><b>G</b><span>Audit, rapportage, export</span></div>
-          <div class="item"><b>H</b><span>Super-admin domein</span></div>
-          <div class="item"><b>∞</b><span>Centrale beheerwaarde</span></div>
+      <h2 class="section-title">Systeem in beeld (kaart met volgende/vorige)</h2>
+      <article class="card visual-card">
+        <div class="slide-header">
+          <h2>Schermen met uitleg</h2>
+          <p>Klik op volgende of vorige om alle schermen rustig door te lopen.</p>
         </div>
-      </div>
 
-      <h2 class="section-title">4. Eigenaar-rol (centrale beheerrol)</h2>
-      <div class="grid">
-        <article class="card">
-          <h2>Belangrijkste rechten</h2>
-          <ul>
-            <li>Alle instructeurs en leerlingen binnen eigen rijschool beheren.</li>
-            <li>Centrale planning overzien, bijsturen en goedkeuren.</li>
-            <li>Financieel beheer, pakketbeheer en herinneringen.</li>
-            <li>Instellingen, emailbeheer en audit-inzichten.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h2>Flexibel permissiemodel</h2>
-          <p>
-            De eigenaar kan optioneel ook instructeurrechten dragen via
-            <span class="pill">has_instructor_role true/false</span>.
-          </p>
-        </article>
-      </div>
-
-      <h2 class="section-title">5. Uitbreiding sessie 1 maart 2026</h2>
-      <div class="grid">
-        <article class="card">
-          <h2>Instructeur detailpagina (4 tabs)</h2>
-          <ul>
-            <li>Profiel</li>
-            <li>Leerlingen (incl. financiële details)</li>
-            <li>Agenda (Kalender / Lijst / Timeline)</li>
-            <li>Voorstellen (workflow eigenaar ↔ instructeur)</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h2>Lesvoorstel-workflow</h2>
-          <ul>
-            <li>Eigenaar doet voorstel.</li>
-            <li>Instructeur accepteert/wijzigt/wijst af.</li>
-            <li>Maximaal 5 wijzigingsrondes.</li>
-            <li>Statusflow + volledige wijzigingshistorie.</li>
-            <li>Email notificaties per stap.</li>
-          </ul>
-        </article>
-      </div>
-
-      <h2 class="section-title">6. API & database uitbreidingen (samengevat)</h2>
-      <div class="grid">
-        <article class="card">
-          <h2>Nieuwe/uitgebreide endpoints</h2>
-          <ul>
-            <li>GET instructeur students detailed</li>
-            <li>POST payment reminder naar student</li>
-            <li>POST propose lesson</li>
-            <li>POST modify proposal</li>
-            <li>POST accept proposal</li>
-            <li>POST reject proposal</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h2>Database wijzigingen</h2>
-          <ul>
-            <li><span class="pill">lesson_requests.initiated_by_role</span></li>
-            <li><span class="pill">lesson_requests.modification_history (JSONB)</span></li>
-            <li><span class="pill">lesson_requests.current_proposal (JSONB)</span></li>
-            <li><span class="pill">lesson_requests.modification_count</span></li>
-            <li>Extra index voor performance op voorstellen</li>
-          </ul>
-        </article>
-      </div>
-
-      <h2 class="section-title">7. Beveiliging & compliance</h2>
-      <div class="grid">
-        <article class="card">
-          <h2>Ingebouwde securitymaatregelen</h2>
-          <ul>
-            <li>Parameterized SQL queries</li>
-            <li>Input sanitization en validatie</li>
-            <li>CORS whitelist beleid</li>
-            <li>Helmet headers + CSP</li>
-            <li>Rate limiting per endpointtype</li>
-            <li>JWT + secure refresh-cookie patronen</li>
-            <li>Multi-tenant isolatie op rijschool_id</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h2>Auditstatus</h2>
-          <div class="status">
-            <div class="row"><span class="dot ok"></span> Kritieke issues geadresseerd</div>
-            <div class="row"><span class="dot ok"></span> Gevoelige data-aanpak verbeterd</div>
-            <div class="row"><span class="dot ok"></span> Export-hardening toegepast</div>
-            <div class="row"><span class="dot warn"></span> Productiechecklist strikt volgen</div>
+        <div class="carousel" id="carousel">
+          <div class="slide active">
+            <img class="slide-image" src="assets/eigenaar-dashboard-1.svg" alt="Dashboard eigenaar overzicht" />
+            <div class="slide-info">
+              <h3>Eigenaar Dashboard — Overzicht</h3>
+              <p>Hier zie je direct hoeveel leerlingen, instructeurs en lessen er zijn.</p>
+            </div>
           </div>
-        </article>
+
+          <div class="slide">
+            <img class="slide-image" src="assets/eigenaar-dashboard-2.svg" alt="Dashboard eigenaar snelle acties" />
+            <div class="slide-info">
+              <h3>Eigenaar Dashboard — Snelle acties</h3>
+              <p>Plan snel een les en open belangrijke onderdelen in 1 klik.</p>
+            </div>
+          </div>
+
+          <div class="slide">
+            <img class="slide-image" src="assets/leerling-portal.svg" alt="Leerling portal home" />
+            <div class="slide-info">
+              <h3>Leerling Portal</h3>
+              <p>Leerlingen zien hun lessen, betalingen, documenten en profielinformatie.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <div>
+            <button class="btn" id="prevBtn" type="button">← Vorige</button>
+            <button class="btn" id="nextBtn" type="button">Volgende →</button>
+          </div>
+          <div class="dots" id="dots"></div>
+        </div>
+      </article>
+
+      <h2 class="section-title">Alle afbeeldingen op de pagina</h2>
+      <div class="gallery">
+        <figure>
+          <img src="assets/eigenaar-dashboard-1.svg" alt="Eigenaar dashboard eerste scherm" />
+          <figcaption>Eigenaar dashboard – hoofdscherm</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/eigenaar-dashboard-2.svg" alt="Eigenaar dashboard tweede scherm" />
+          <figcaption>Eigenaar dashboard – tweede overzicht</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/leerling-portal.svg" alt="Leerling portal overzicht" />
+          <figcaption>Leerling portal – home scherm</figcaption>
+        </figure>
       </div>
 
-      <h2 class="section-title">8. Architectuurverbeteringen</h2>
-      <div class="card">
-        <ul>
-          <li>Consistente JWT expiratie via omgevingsconfiguratie.</li>
-          <li>Soft-delete strategie op kritieke tabellen i.p.v. hard delete.</li>
-          <li>Circular reference cleanup in payment-model.</li>
-          <li>Extra constraints/indexes voor consistentie en performance.</li>
-          <li>Verbeterde security documentatie rond credentials.</li>
-        </ul>
-      </div>
-
-      <h2 class="section-title">9. Recente oplossingen (25 maart 2026)</h2>
+      <h2 class="section-title">Kort samengevat</h2>
       <div class="grid">
         <article class="card">
-          <h2>Operationele fixes</h2>
+          <h2>Waarom dit handig is</h2>
           <ul>
-            <li>ENV opgeschoond: duplicaten/verkeerde placeholders verwijderd.</li>
-            <li>Route-middleware gestandaardiseerd naar verifyToken.</li>
-            <li>Super-admin build gefixt via api alias export.</li>
-            <li>Dev DB SSL chain fout opgelost met lokale override.</li>
-            <li>CORS allowlist uitgebreid voor lokale origins.</li>
-            <li>EADDRINUSE opgelost via 1 actieve backend instance.</li>
+            <li>Iedereen werkt in dezelfde omgeving.</li>
+            <li>Minder fouten in planning en communicatie.</li>
+            <li>Meer overzicht voor eigenaar en team.</li>
           </ul>
         </article>
-
         <article class="card">
-          <h2>Bekende dev-waarschuwingen (geen blockers)</h2>
+          <h2>Wat je onthoudt</h2>
           <ul>
-            <li>Sentry DSN ontbreekt → monitoring niet actief.</li>
-            <li>Resend API key ontbreekt → email reminders uit.</li>
-            <li>SSL validatie waarschuwing door dev-override.</li>
+            <li>Het systeem is gemaakt voor dagelijks gebruik.</li>
+            <li>De informatie is duidelijk per rol.</li>
+            <li>Je ziet alle belangrijke schermen direct op deze pagina.</li>
           </ul>
-        </article>
-      </div>
-
-      <h2 class="section-title">10. Runbook & verificatie</h2>
-      <div class="grid">
-        <article class="card">
-          <h2>Lokale startvolgorde</h2>
-          <ol>
-            <li>Dependencies installeren (root + backend + super-admin).</li>
-            <li>ENV-bestanden controleren.</li>
-            <li>Backend starten op poort 5000.</li>
-            <li>Frontend starten op poort 3000.</li>
-            <li>Super-admin starten op poort 5173 (optioneel).</li>
-          </ol>
-          <h3>Als iets faalt</h3>
-          <ul>
-            <li>EADDRINUSE → proces op poort stoppen.</li>
-            <li>CORS error → ALLOWED_ORIGINS controleren.</li>
-            <li>DB SSL error → dev SSL reject instelling checken.</li>
-            <li>Auth errors → JWT_SECRET lengte/waarde controleren.</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h2>Regressiechecks</h2>
-          <ul>
-            <li>Login per rol: eigenaar, instructeur, leerling.</li>
-            <li>CORS preflight op auth endpoint.</li>
-            <li>Belangrijkste dashboard/data endpoints.</li>
-            <li>Lesvoorstel-workflow end-to-end.</li>
-            <li>Reminder flow.</li>
-            <li>Basis payment flow.</li>
-          </ul>
-        </article>
-      </div>
-
-      <h2 class="section-title">11. Roadmap kort & conclusie</h2>
-      <div class="grid">
-        <article class="card">
-          <h2>Afgerond</h2>
-          <ul>
-            <li>Core infrastructuur</li>
-            <li>Student portal</li>
-            <li>Instructor portal</li>
-            <li>Email reminders</li>
-            <li>Pickup locatie per les</li>
-          </ul>
-          <h3>Verder (indicatief)</h3>
-          <ul>
-            <li>Meer analytics en rapportages</li>
-            <li>Doorontwikkeling in operations en UX</li>
-            <li>Extra productiehardening en monitoringdiepte</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h2>Kernadvies</h2>
-          <ul>
-            <li>Houd ENV-waarden schoon en enkelvoudig.</li>
-            <li>Houd CORS expliciet en environment-specifiek.</li>
-            <li>Draai per service één actieve dev-instance.</li>
-            <li>Bewaak productiebeveiliging zonder dev defaults.</li>
-          </ul>
-          <p>
-            Conclusie: dit is een volwassen, schaalbaar en beheersbaar
-            multi-tenant platform met sterke basis in planning, finance,
-            communicatie en security.
-          </p>
         </article>
       </div>
     </main>
 
     <footer>
-      <div class="container">
-        Rijschool Planning Systeem — Master Onepager samengesteld op basis van
-        het systeemdossier (25 maart 2026).
-      </div>
+      <div class="container">Rijschool Platform — simpele uitleg met beeld en duidelijke informatie.</div>
     </footer>
+
+    <script>
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const dotsContainer = document.getElementById('dots');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      let currentIndex = 0;
+
+      function renderDots() {
+        dotsContainer.innerHTML = '';
+        slides.forEach((_, index) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = `dot${index === currentIndex ? ' active' : ''}`;
+          dot.setAttribute('aria-label', `Ga naar afbeelding ${index + 1}`);
+          dot.addEventListener('click', () => showSlide(index));
+          dotsContainer.appendChild(dot);
+        });
+      }
+
+      function showSlide(index) {
+        currentIndex = (index + slides.length) % slides.length;
+        slides.forEach((slide, i) => slide.classList.toggle('active', i === currentIndex));
+        renderDots();
+      }
+
+      prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
+      nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
+
+      renderDots();
+    </script>
   </body>
 </html>

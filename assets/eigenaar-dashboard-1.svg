@@ -1,0 +1,11 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#0B1730"/>
+  <rect x="64" y="64" width="1472" height="772" rx="22" fill="#13284E" stroke="#233B6F" stroke-width="2"/>
+  <rect x="112" y="122" width="420" height="48" rx="10" fill="#173265"/>
+  <rect x="112" y="206" width="680" height="220" rx="16" fill="#1A3972"/>
+  <rect x="812" y="206" width="680" height="220" rx="16" fill="#1A3972"/>
+  <rect x="112" y="448" width="680" height="220" rx="16" fill="#1A3972"/>
+  <rect x="812" y="448" width="680" height="220" rx="16" fill="#1A3972"/>
+  <text x="112" y="760" fill="#E7EEFF" font-size="52" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Eigenaar Dashboard - Overzicht</text>
+  <text x="112" y="808" fill="#B3C1E8" font-size="34" font-family="Segoe UI, Arial, sans-serif">Vervang dit bestand met je echte screenshot als je wilt.</text>
+</svg>
